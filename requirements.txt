@@ -1,0 +1,8 @@
+# This is a requirements file for a Python project.
+tensorflow==2.15.0
+pandas
+numpy
+scikit-learn
+tensorboard
+matplotlib
+streamlit
