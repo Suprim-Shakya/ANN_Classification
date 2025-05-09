@@ -48,11 +48,11 @@ input_data = pd.DataFrame({
 })
 
 # One-hot encoding the Geography column
-geography_encoded = onehot.transform(input_data[['Geography']]).toarray()
+geography_encoded = onehot.transform([[geography]]).toarray()
 geography_encoded_df = pd.DataFrame(geography_encoded, columns=onehot.get_feature_names_out(['Geography']))
 
 # Dropping the original Geography column and concatenating the encoded columns
-input_data = pd.concat([input_data.drop('Geography', axis=1), geography_encoded_df], axis=1)
+input_data = pd.concat([input_data.reset_index(drop=True), geography_encoded_df], axis=1)
 
 # Scaling the input data
 input_data_scaled = scaler.transform(input_data)
